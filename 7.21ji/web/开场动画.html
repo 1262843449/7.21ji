@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/layui/dist/css/layui.css" />
+    <script src="./node_modules/layui/dist/layui.js"></script>
+    <link rel="stylesheet" href="./css/register.css" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #333;
+        }
+
+        #man {
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            animation-name: run;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes run {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(1200px);
+            }
+        }
+
+        .head {
+            width: 50px;
+            height: 60px;
+            border-radius: 25px;
+            border: 2px solid white;
+            margin: 0 auto;
+        }
+
+        .body {
+            width: 2px;
+            height: 65px;
+            background: white;
+            margin: 0 auto;
+        }
+
+        .hand-left,
+        .hand-right {
+            width: 40px;
+            height: 50px;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            position: absolute;
+            top: 85px;
+            left: 49px;
+            transform-origin: 0 0;
+        }
+
+        .hand-left {
+            transform: rotate(45deg);
+            animation: hand-left 0.5s linear infinite;
+        }
+
+        @keyframes hand-left {
+            0% {
+                transform: rotate(60deg);
+            }
+
+            50% {
+                transform: rotate(-45deg);
+            }
+
+            100% {
+                transform: rotate(60deg);
+            }
+        }
+
+        .hand-right {
+            transform: rotate(-45deg);
+            animation: hand-right 0.5s linear infinite;
+        }
+
+        @keyframes hand-right {
+            0% {
+                transform: rotate(-45deg);
+            }
+
+            50% {
+                transform: rotate(60deg);
+            }
+
+            100% {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .leg-left,
+        .leg-right {
+            width: 50px;
+            height: 55px;
+            border-bottom: 2px solid white;
+            border-right: 2px solid white;
+            position: absolute;
+            top: 128px;
+            transform-origin: 100% 0;
+        }
+
+        .leg-left {
+            transform: rotate(45deg);
+            animation: leg-left 0.5s linear infinite;
+        }
+
+        @keyframes leg-left {
+            0% {
+                transform: rotate(45deg);
+            }
+
+            50% {
+                transform: rotate(-60deg);
+            }
+
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+
+        .leg-right {
+            transform: rotate(-80deg);
+            animation: leg-right 0.5s linear infinite;
+        }
+
+        @keyframes leg-right {
+            0% {
+                transform: rotate(-80deg);
+            }
+
+            50% {
+                transform: rotate(45deg);
+            }
+
+            100% {
+                transform: rotate(-80deg);
+            }
+        }
+
+        .demo-reg-container {
+            width: 320px;
+            margin: 21px auto 0;
+            margin-top: 150px;
+        }
+
+        .demo-reg-other .layui-icon {
+            position: relative;
+            display: inline-block;
+            margin: 0 2px;
+            top: 2px;
+            font-size: 26px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #009688;
+            margin-bottom: 20px;
+        }
+
+        .layui-form {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="man">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="hand-left"></div>
+        <div class="hand-right"></div>
+        <div class="leg-left"></div>
+        <div class="leg-right"></div>
+    </div>
+    <pre style="color:red">
+</pre>
+
+
+    <form class="layui-form">
+
+        <div class="demo-reg-container">
+
+            <h3>用户注册</h3>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-username"></i>
+                    </div>
+                    <input type="text" name="username" value="" lay-verify="required" placeholder="用户名"
+                        lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-password"></i>
+                    </div>
+                    <input type="password" name="password" value="" lay-verify="required" placeholder="密码"
+                        autocomplete="off" class="layui-input" id="reg-password" lay-affix="eye" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-password"></i>
+                    </div>
+                    <input type="password" name="confirmPassword" value="" lay-verify="required|confirmPassword"
+                        placeholder="确认密码" autocomplete="off" class="layui-input" lay-affix="eye" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-username"></i>
+                    </div>
+                    <input type="text" name="nickname" value="" lay-verify="required" placeholder="昵称"
+                        autocomplete="off" class="layui-input" lay-affix="clear" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">性别</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="男" title="男" checked />
+                    <input type="radio" name="sex" value="女" title="女" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-reg">
+                    注册
+                </button>
+            </div>
+            <div class="layui-form-item demo-reg-other">
+                <a href="login.html">登录已有帐号</a>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        setTimeout(function () {
+            document.getElementById("man").style.display = "none";
+            document.body.style.backgroundColor = "transparent";
+            document.querySelector(".layui-form").style.display = "block";
+        }, 4000);
+
+
+
+        layui.use(function () {
+            var $ = layui.$;
+            var form = layui.form;
+            var layer = layui.layer;
+            var util = layui.util;
+
+            // 自定义验证规则
+            form.verify({
+                // 确认密码
+                confirmPassword: function (value, item) {
+                    var passwordValue = $("#reg-password").val();
+                    if (value !== passwordValue) {
+                        return "两次密码输入不一致";
+                    }
+                },
+            });
+
+            // 提交事件
+            form.on("submit(demo-reg)", function (data) {
+                event.preventDefault();
+                var field = data.field; // 获取表单字段值
+                // 此处可执行 Ajax 等操作
+                $.ajax({
+                    url: "http://localhost:3000/users",
+                    type: "post",
+                    data: field,
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.status == 200) {
+                            layer.msg("注册成功");
+                            window.location.href = "login.html";
+                        } else {
+                            layer.msg(res.msg);
+                        }
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
